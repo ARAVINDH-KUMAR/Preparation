@@ -1,0 +1,24 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    public static void main(String[] args) {
+      int [] arr = {1,5,6,3,2,8,13};
+      int toFind = 7;
+      int nearestElement = findNearestElement(arr , toFind);
+      System.out.println(nearestElement);
+      }
+      
+      public static int findNearestElement(int [] a, int n){
+        int nearestElement = a[0];
+        int minimumDifference = Math.abs(n - nearestElement);
+        for(int i=1;i<a.length;i++){
+            int currentDifference = Math.abs(n - a[i]);
+            if(currentDifference < minimumDifference){
+                minimumDifference = currentDifference;
+                nearestElement = a[i];
+            }
+        }
+        return nearestElement;
+      }
+    }
