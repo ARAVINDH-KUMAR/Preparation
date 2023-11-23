@@ -1,0 +1,22 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] array = {2, 5, 8, 2, 12, 5, 8, 2, 18, 22, 8};
+        int [] uniqueElements = Arrays.stream(array).distinct().toArray();
+        for(int element : uniqueElements){
+            int freq = findFreq(array,element);
+            System.out.println(element + ":" + freq);
+        }
+      }
+      public static int findFreq(int [] arr , int targetElement){
+          int freq=0;
+          for(int element : arr){
+              if(element == targetElement){
+                  freq++;
+              }
+          }
+          return freq;
+      }
+    }
