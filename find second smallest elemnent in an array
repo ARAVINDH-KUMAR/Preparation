@@ -1,0 +1,10 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        List<Integer> l1 = Arrays.asList(3,5,1,2,6,3,8,9,21);
+        int result = l1.stream().sorted().skip(1).findFirst().orElseThrow(()-> new IllegalArgumentException("No values found"));
+        System.out.println(result);
+        }
+}
