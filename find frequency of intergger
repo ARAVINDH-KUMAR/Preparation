@@ -1,0 +1,28 @@
+import java.util.Arrays;
+
+public class ElementFrequencyCounter {
+
+    public static void main(String[] args) {
+        int[] array = {2, 5, 8, 2, 12, 5, 8, 2, 18, 22, 8};
+
+        int[] uniqueElements = Arrays.stream(array).distinct().toArray();
+
+        System.out.println("Element frequencies in the array:");
+        for (int element : uniqueElements) {
+            int frequency = findElementFrequency(array, element);
+            System.out.println(element + ": " + frequency);
+        }
+    }
+
+    private static int findElementFrequency(int[] array, int targetElement) {
+        int frequency = 0;
+
+        for (int element : array) {
+            if (element == targetElement) {
+                frequency++;
+            }
+        }
+
+        return frequency;
+    }
+}
