@@ -1,0 +1,51 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class EmployeeSorter {
+
+    public static void main(String[] args) {
+        // Creating a HashMap to store employee details (id, name, salary)
+        Map<Integer, Employee> employeeMap = new HashMap<>();
+        employeeMap.put(101, new Employee("John", 50000));
+        employeeMap.put(102, new Employee("Alice", 60000));
+        employeeMap.put(103, new Employee("Bob", 55000));
+
+        // Sorting employees based on name in ascending order
+        List<Employee> sortedEmployees = sortEmployeesByNameAscending(employeeMap);
+
+        // Displaying sorted employees
+        sortedEmployees.forEach(System.out::println);
+    }
+
+    private static List<Employee> sortEmployeesByNameAscending(Map<Integer, Employee> employeeMap) {
+        return employeeMap.entrySet().stream()
+                .sorted((entry1, entry2) -> entry1.getValue().getName().compareTo(entry2.getValue().getName()))
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
+    }
+}
+
+class Employee {
+    private String name;
+    private int salary;
+
+    public Employee(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{name='" + name + "', salary=" + salary + '}';
+    }
+}
